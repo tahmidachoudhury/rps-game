@@ -20,31 +20,31 @@
             let compScore = 0;
 
             if (playerSel == computerSelection){
-                return 'tie!';
+                return 'tie!' ;
             
             } else if ((playerSel == 'paper') && (computerSelection == 'rock')){
                 playerScore = playerScore + 1;
-                return `paper beats rock! you win! your score ${playerScore}`;
+                return `paper beats rock! you win! your score is ${playerScore}`;
             
             } else if ((playerSel == 'rock') && (computerSelection == 'scissors')){
                 playerScore = playerScore + 1;
-                return `rock beats scissors! you win! your score ${playerScore}`;
+                return `rock beats scissors! you win! your score is ${playerScore}`;
             
             } else if ((playerSel == 'scissors') && (computerSelection == 'paper')){
                 playerScore = playerScore + 1;
-                return `scissors beats paper! you win! your score ${playerScore}`;
+                return `scissors beats paper! you win! your score is ${playerScore}`;
             
             } else if ((playerSel == 'rock') && (computerSelection == 'paper')){
                 compScore = compScore + 1;
-                return `paper beats rock! you lose! computer's score ${compScore}`;
+                return `paper beats rock! you lose! computer's score is ${compScore}`;
             
             } else if ((playerSel == 'scissors') && (computerSelection == 'rock')){
                 compScore = compScore + 1;
-                return `rock beats scissors! you lose! computer's score ${compScore}`;
+                return `rock beats scissors! you lose! computer's score is ${compScore}`;
             
             } else if ((playerSel == 'paper') && (computerSelection == 'scissors')){
                 compScore = compScore + 1;
-                return `scissors beats paper! you lose! computer's score ${compScore}`;
+                return `scissors beats paper! you lose! computer's is score ${compScore}`;
             }
 
             if (playerScore == 3) {
@@ -54,15 +54,14 @@
             }
         }
     function game(){
-        let playerSelection = prompt("pick either 'rock', 'paper' or 'scissors'");
+        let playerSelection = String(prompt("pick either 'rock', 'paper' or 'scissors'"));
         const computerSelection = getComputerChoice(); 
         playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
 
-        let count = 0
-        while (count != 5) {
-            game();
-            count = count + 1;
-        }
     }
 
 
