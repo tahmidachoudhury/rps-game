@@ -9,16 +9,20 @@
         let compScore = 0;
 
         game();
-        game();
-        game();
-        game();
-        game();
+
+
+
 
         function getComputerChoice(){
             let choices = ['rock', 'paper', 'scissors'];
             let randIndex = Math.floor(Math.random() * choices.length);
             return choices[randIndex];
         }
+
+
+
+
+
 
         function playRound(playerSelection, computerSelection){
 
@@ -32,29 +36,54 @@
             ((playerSel == 'scissors') && (computerSelection == 'paper'))){
                 playerScore += 1;
                 console.log(`you picked ${playerSel}! computer picked ${computerSelection}!
-you win! your score is ${playerScore} out of 3`);
-                
-                if (playerScore == 3) {
-                console.log('you won!');}
-             
-            
+you win! your score is ${playerScore} out of 3`);       
+
             } else {
                 compScore += 1;
-                console.log(`you picked ${playerSel}! computer picked ${computerSelection}! you lose! computer's score is ${compScore} out of 3`);
-                if (compScore == 3) {
-                console.log('you lost!');}
-                }
+                console.log(`you picked ${playerSel}! computer picked ${computerSelection}! 
+you lose! computer's score is ${compScore} out of 3`);}
         }
 
-        function game(){
+
+
+
+
+        function roundStarter(finish){
             let playerSelection = String(prompt("pick either 'rock', 'paper' or 'scissors'"));
                 if (playerSelection == "null"){
-                    playerSelection = "nothing";
-                }
+                    playerSelection = "nothing";}
             const computerSelection = getComputerChoice();
 
             playRound(playerSelection, computerSelection);
 
+            if (finish == null || finish == false){
+                if (compScore > playerScore) {
+                console.log(`That's the end! i beat you with the final score:
+you: ${playerScore}
+me: ${compScore}`)
+                } else if (playerScore > compScore){
+                console.log(`That's the end! you beat me with the final score:
+you: ${playerScore}
+me: ${compScore}`)
+                } else{
+                console.log(`tie! 
+me: ${compScore}
+you: ${playerScore}
+press control+r RIGHT NOW!`)
+                }
+            }
+        }
+
+
+
+
+
+        function game(){
+            roundStarter(true)
+            roundStarter(true)
+            roundStarter(true)
+            roundStarter(true)
+            roundStarter()
         }
 
 
