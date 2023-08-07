@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROCK PAPER SCISSORS</title>
     <script>
+        let playerScore = 0;
+        let compScore = 0;
+
+        game();
+        game();
+        game();
+        game();
         game();
 
         function getComputerChoice(){
@@ -16,52 +23,31 @@
         function playRound(playerSelection, computerSelection){
             let playerSel = playerSelection.toLowerCase();
 
-            let playerScore = 0;
-            let compScore = 0;
-
             if (playerSel == computerSelection){
-                return 'tie!' ;
+                console.log('tie!');
             
-            } else if ((playerSel == 'paper') && (computerSelection == 'rock')){
-                playerScore = playerScore + 1;
-                return `paper beats rock! you win! your score is ${playerScore}`;
+            } else if (((playerSel == 'paper') && (computerSelection == 'rock'))||
+            (((playerSel == 'rock') && (computerSelection == 'scissors')))||
+            ((playerSel == 'scissors') && (computerSelection == 'paper'))){
+                playerScore += 1;
+                console.log(`${playerSel} beats ${computerSelection}! you win! your score is ${playerScore}`);
+                
+                if (playerScore == 3) {
+                console.log('you won!');}
+             
             
-            } else if ((playerSel == 'rock') && (computerSelection == 'scissors')){
-                playerScore = playerScore + 1;
-                return `rock beats scissors! you win! your score is ${playerScore}`;
-            
-            } else if ((playerSel == 'scissors') && (computerSelection == 'paper')){
-                playerScore = playerScore + 1;
-                return `scissors beats paper! you win! your score is ${playerScore}`;
-            
-            } else if ((playerSel == 'rock') && (computerSelection == 'paper')){
-                compScore = compScore + 1;
-                return `paper beats rock! you lose! computer's score is ${compScore}`;
-            
-            } else if ((playerSel == 'scissors') && (computerSelection == 'rock')){
-                compScore = compScore + 1;
-                return `rock beats scissors! you lose! computer's score is ${compScore}`;
-            
-            } else if ((playerSel == 'paper') && (computerSelection == 'scissors')){
-                compScore = compScore + 1;
-                return `scissors beats paper! you lose! computer's is score ${compScore}`;
-            }
-
-            if (playerScore == 3) {
-                console.log('you won!');
-            } else if (compScore == 3) {
-                console.log('you lose!');
-            }
+            } else {
+                compScore += 1;
+                console.log(`${computerSelection} beats ${playerSel}! you lose! computer's score is ${compScore}`);
+                if (compScore == 3) {
+                console.log('you lose!');}
+                }
         }
+
     function game(){
         let playerSelection = String(prompt("pick either 'rock', 'paper' or 'scissors'"));
         const computerSelection = getComputerChoice(); 
         playRound(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
-
     }
 
 
