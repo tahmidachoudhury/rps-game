@@ -21,6 +21,7 @@
         }
 
         function playRound(playerSelection, computerSelection){
+
             let playerSel = playerSelection.toLowerCase();
 
             if (playerSel == computerSelection){
@@ -30,7 +31,8 @@
             (((playerSel == 'rock') && (computerSelection == 'scissors')))||
             ((playerSel == 'scissors') && (computerSelection == 'paper'))){
                 playerScore += 1;
-                console.log(`${playerSel} beats ${computerSelection}! you win! your score is ${playerScore}`);
+                console.log(`you picked ${playerSel}! computer picked ${computerSelection}!
+you win! your score is ${playerScore} out of 3`);
                 
                 if (playerScore == 3) {
                 console.log('you won!');}
@@ -38,18 +40,22 @@
             
             } else {
                 compScore += 1;
-                console.log(`${computerSelection} beats ${playerSel}! you lose! computer's score is ${compScore}`);
+                console.log(`you picked ${playerSel}! computer picked ${computerSelection}! you lose! computer's score is ${compScore} out of 3`);
                 if (compScore == 3) {
-                console.log('you lose!');}
+                console.log('you lost!');}
                 }
         }
 
-    function game(){
-        let playerSelection = String(prompt("pick either 'rock', 'paper' or 'scissors'"));
-        const computerSelection = getComputerChoice(); 
-        playRound(playerSelection, computerSelection);
-    }
+        function game(){
+            let playerSelection = String(prompt("pick either 'rock', 'paper' or 'scissors'"));
+                if (playerSelection == "null"){
+                    playerSelection = "nothing";
+                }
+            const computerSelection = getComputerChoice();
 
+            playRound(playerSelection, computerSelection);
+
+        }
 
 
     </script>
