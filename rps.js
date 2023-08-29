@@ -1,9 +1,6 @@
 let playerScore = 0;
 let compScore = 0;
 
-game();
-
-
 
 
 function getComputerChoice(){
@@ -13,8 +10,9 @@ function getComputerChoice(){
 }
 
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection){
 
+    const computerSelection = getComputerChoice();
     let playerSel = playerSelection.toLowerCase();
 
     if (playerSel == computerSelection){
@@ -31,17 +29,61 @@ you win! your score is ${playerScore} out of 3`);
         compScore += 1;
         console.log(`you picked ${playerSel}! computer picked ${computerSelection}! 
 you lose! computer's score is ${compScore} out of 3`);}
+
+
+    const rockAIButton = document.querySelector('.AI.rock');
+    const paperAIButton = document.querySelector('.AI.paper');
+    const scissorsAIButton = document.querySelector('.AI.scissors');
+
+    if (computerSelection == 'rock'){rockAIButton.classList.add('transition')}
+    if (computerSelection == 'scissors'){scissorsAIButton.classList.add('transition')}
+    if (computerSelection == 'paper'){paperAIButton.classList.add('transition')}
 }
 
 
+const rockButton = document.querySelector('.player.rock');
+rockButton.addEventListener('click', () => {
+    playRound('rock')
+    rockButton.classList.add('transition')
+});
 
 
+const paperButton = document.querySelector('.player.paper');
+paperButton.addEventListener('click', () => {
+    playRound('paper')
+    paperButton.classList.add('transition')
+});
+
+const scissorsButton = document.querySelector('.player.scissors');
+scissorsButton.addEventListener('click', () => {
+    playRound('scissors')
+    scissorsButton.classList.add('transition')
+});
+
+function removeTransition(e) {
+    if(e.propertyName !== 'transform') return;
+    this.classList.remove('transition');
+
+}
+
+options = document.querySelectorAll('.player, .AI');
+options.forEach(option => option.addEventListener('transitionend', removeTransition));
+
+
+
+
+//        function game(){
+//            roundStarter(true)
+//            roundStarter(true)
+//            roundStarter(true)
+//            roundStarter(true)
+//            roundStarter()
+//        }
 
 function roundStarter(finish){
     let playerSelection = String(prompt("pick either 'rock', 'paper' or 'scissors'"));
         if (playerSelection == "null"){
             playerSelection = "nothing";}
-    const computerSelection = getComputerChoice();
 
     playRound(playerSelection, computerSelection);
 
@@ -62,16 +104,3 @@ press control+r RIGHT NOW!`)
         }
     }
 }
-
-
-
-
-
-//        function game(){
-//            roundStarter(true)
-//            roundStarter(true)
-//            roundStarter(true)
-//            roundStarter(true)
-//            roundStarter()
-//        }
-
