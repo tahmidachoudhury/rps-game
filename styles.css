@@ -128,7 +128,6 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(0, 0, 0);
 }
 
 
@@ -150,3 +149,25 @@ button{
     transition: all 1.37s;
 }
 
+
+.cred{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #FC766A;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #1F2937;
+}
+
+a{
+    text-decoration: none;
+    color: #1F2937;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+a:hover{
+    text-decoration: underline;
+}
